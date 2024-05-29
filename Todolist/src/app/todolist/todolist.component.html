@@ -1,0 +1,12 @@
+<!-- todo-list.component.html -->
+<div *ngFor="let t of taskArray; index as i" class="card">
+  <h5>Nome:</h5>
+  <p>{{t.taskName}}</p>
+  <hr>
+  <h5>Descrizione</h5>
+  <p>{{t.taskDesc}}</p>
+  <hr>
+  <p>Completato: <input (change)="onCheck(i)" id="myCheckbox" type="checkbox"></p>
+  <button class="btn btn-danger btn-sm" (click)="onDelete(i)">Delete</button>
+  <button class="btn btn-success btn-sm" (click)="onModify(i)">Modifica</button>
+</div>
