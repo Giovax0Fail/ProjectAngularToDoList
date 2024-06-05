@@ -1,6 +1,6 @@
 // app.component.ts
 import { Component } from '@angular/core';
-
+import { Router  } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -41,6 +41,12 @@ export class AppComponent {
 
   onCheck(index: number) {
     // Gestisci il cambiamento dello stato del checkbox se necessario
+  }
+
+  constructor(private router: Router) {}
+
+  navigateToInfo() {
+    this.router.navigate(['info']);
   }
 }
 

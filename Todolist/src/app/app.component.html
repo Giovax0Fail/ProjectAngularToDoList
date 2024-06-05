@@ -3,6 +3,9 @@
 <div class="container">
   <h1>To-Do Application</h1>
   <hr>
+  <div class="container">
+    <button class="btn btn-primary"id="infoButton" (click)="navigateToInfo()">Info</button>
+  </div>
   <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
     <div class="form-group">
       <label for="task">Task</label>
@@ -23,5 +26,7 @@
 </div>
 <div class="container">
   <app-todolist [taskArray]="taskArray" (deleteTask)="onDelete($event)" (modifyTask)="onModify($event)" (checkTask)="onCheck($event)"></app-todolist>
+  <router-outlet></router-outlet>
+
 </div>
 
