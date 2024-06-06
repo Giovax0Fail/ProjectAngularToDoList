@@ -4,10 +4,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.scss']
+  styleUrls: ['./todolist.component.scss'],
 })
 export class TodoListComponent {
-  @Input() taskArray: { taskName: string, taskDesc: string }[] = [];
+  @Input() taskArray: { taskName: string; taskDesc: string }[] = [];
   @Output() deleteTask = new EventEmitter<number>();
   @Output() modifyTask = new EventEmitter<number>();
   @Output() checkTask = new EventEmitter<number>();
@@ -23,5 +23,7 @@ export class TodoListComponent {
   onCheck(index: number) {
     this.checkTask.emit(index);
   }
+  InfoCard(index: number) {
+    alert('Ecco le info sulla card');
+  }
 }
-

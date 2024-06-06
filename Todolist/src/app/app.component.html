@@ -1,32 +1,66 @@
-
 <!-- app.component.html -->
 <div class="container">
   <h1>To-Do Application</h1>
-  <hr>
-  <div class="container">
-    <button class="btn btn-primary"id="infoButton" (click)="navigateToInfo()">Info</button>
-  </div>
+  <hr />
+
   <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
     <div class="form-group">
       <label for="task">Task</label>
-      <input type="text" class="form-control" id="task" placeholder="Enter task" ngModel name="task" required>
+      <input
+        type="text"
+        class="form-control"
+        id="task"
+        placeholder="Enter task"
+        ngModel
+        name="task"
+        required
+      />
 
       <label for="desc">Descrizione</label>
-      <input type="text" class="form-control" id="desc" placeholder="Enter desc" ngModel name="desc" required>
+      <input
+        type="text"
+        class="form-control"
+        id="desc"
+        placeholder="Enter desc"
+        ngModel
+        name="desc"
+        required
+      />
 
-      <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorMessage" class="form-text text-danger">Required field</small>
+      <small
+        *ngIf="taskForm.invalid && taskForm.dirty"
+        id="errorMessage"
+        class="form-text text-danger"
+        >Required field</small
+      >
     </div>
 
-
-    <button *ngIf="modifying_at_index === -1" [disabled]="taskForm.invalid" id="submitButton" type="submit" class="btn btn-primary">Submit</button>
-    <button *ngIf="modifying_at_index != -1" [disabled]="taskForm.invalid" id="modifyButton" type="submit" class="btn btn-primary">Modify</button>
-
+    <button
+      *ngIf="modifying_at_index === -1"
+      [disabled]="taskForm.invalid"
+      id="submitButton"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+    <button
+      *ngIf="modifying_at_index != -1"
+      [disabled]="taskForm.invalid"
+      id="modifyButton"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Modify
+    </button>
   </form>
-  <hr>
+  <hr />
 </div>
 <div class="container">
-  <app-todolist [taskArray]="taskArray" (deleteTask)="onDelete($event)" (modifyTask)="onModify($event)" (checkTask)="onCheck($event)"></app-todolist>
-  <router-outlet></router-outlet>
-
+  <app-todolist
+    [taskArray]="taskArray"
+    (deleteTask)="onDelete($event)"
+    (modifyTask)="onModify($event)"
+    (checkTask)="onCheck($event)"
+  ></app-todolist>
 </div>
-
